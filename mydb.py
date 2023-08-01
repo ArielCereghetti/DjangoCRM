@@ -14,6 +14,6 @@ cursor = db.cursor()
 
 # Create a database
 
-cursor.execute("CREATE DATABASE portfolio")
+cursor.execute("CREATE DATABASE MyCRM")
 
 print("Initialized the database")
