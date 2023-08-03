@@ -1,0 +1,11 @@
+<nav class="navbar">
+    <a class="navitem" href="/">Home</a>
+
+    {% if user.is_authenticated %}
+        <a class="navitem" href="{% url 'CRM:logout' %}">Logout</a>
+    {% else %}
+        <a class="navitem" href="{% url 'CRM:login' %}">Log in</a>
+        <a class="navitem" href="{% url 'CRM:register' %}">Register</a>
+    {% endif %}
+    
+</nav>
