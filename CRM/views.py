@@ -19,6 +19,18 @@ def login_user(request):
 
 def login(request):
     pass
+def register_user(request):
+    if request.method == "POST":
+        form = RegisterUser(request.POST)
+        if form.is_valid():
+            print(request.POST)
+        else:
+            return render(request, "CRM/register.html", {
+                "form": RegisterUser(),
+                "message": "One or more fields were incorrect, please try again"
+            })
 
-def register(request):
-    return render(request, "CRM/register.html")
+
+    return render(request, "CRM/register.html", {
+        "form": RegisterUser(),
+    })
