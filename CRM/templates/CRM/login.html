@@ -1,0 +1,14 @@
+{% extends "CRM/layout.html" %}
+
+{% block body %}
+
+    <h1>Log in</h1>
+    <form action="{% url 'CRM:login' %}" method="post">
+        <div class="flex-container">
+        {% csrf_token %}
+            {{ form }}
+            {% include 'CRM/submit.html' %}
+    </div>
+    </form>
+
+{% endblock %}
