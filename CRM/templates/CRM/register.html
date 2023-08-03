@@ -3,5 +3,13 @@
 {% block body %}
 
     <h1>Register</h1>
+    <form action="" method="post">
+        <div class="flex-container">
+
+            {% csrf_token %}
+            {{ form }}
+            {% include 'CRM/submit.html' %}
+        </div>
+    </form>
 
 {% endblock %}

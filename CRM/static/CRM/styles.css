@@ -1,0 +1,139 @@
+.navbar {
+    width: 100%;
+    background-color: #05314b;
+    padding: 40px 25px;
+}
+body {
+    margin: 0;
+    width: 100vw;
+}
+
+
+.navitem {
+    transition: background-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+    display: inline;
+    list-style-type: none;
+    text-decoration: none;
+    padding: inherit;
+    color: white;
+}
+
+.navitem:hover {
+    background-color: #1381ff22;
+    box-shadow: inset 0px 0px 0px 1.5px #ffffff33;
+}
+
+@media screen and (max-width: 700px){
+
+    form label {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .navbar {
+        padding: 30px 15px;
+    }
+
+
+    .container {
+        width: 90%;
+        margin: auto;
+    }
+
+    .flex-container .signupform {
+        padding: 10px;
+        font-size: large;
+    }
+
+    .flex-container {
+        align-content: center;
+    }
+
+    .btn-primary {
+        padding: 10px 20px;
+        font-size: 20px;
+        align-self: center;
+    }
+
+    .navitem {
+        font-size: 14px;
+    }
+    .alert {
+        position: fixed;
+        bottom: 25%;
+        margin: auto;        
+        padding: 7px 15px;
+        background-color: rgb(255, 228, 109);
+        font-size: 20px;
+        border-radius: 6px;
+    }
+}
+
+@media screen and (min-width: 700px){
+
+    form label {
+        font-size: 25px;
+    }
+    .container {
+        width: 70%;
+        margin: auto;
+    }
+
+    .btn-primary {
+        padding: 12px 30px;
+        font-size: 20px;
+        align-self: flex-start;
+    }
+
+    .navitem{
+        font-size: 25px;
+    }
+    
+    .flex-container {
+        align-content: stretch;
+    }
+
+
+    .flex-container .signupform {
+        padding: 10px;
+        font-size: large;
+        
+    }
+
+    .alert {
+        position: absolute;
+        bottom: 25%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        padding: 7px 15px;
+        background-color: rgb(255, 208, 0);
+        font-size: 25px;
+        border-radius: 6px;
+    }
+}
+
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.flex-container .signupform {
+    margin: 8px;
+    margin-left: 0;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+}
+.flex-container .signupform:focus {
+    outline: none;
+}
+
+
+.btn-primary {
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background-color: #1381ff;
+    width: fit-content;
+}
