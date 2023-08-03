@@ -18,8 +18,15 @@ def login_user(request):
         else:
             return render(request, 'CRM/login.html', {"form": form })
 
-def login(request):
-    pass
+        if user:
+            login(request, user)
+        else:
+            return render(request, 'CRM/login.html', {"form": form })
+
+
+
+    return render(request, 'CRM/login.html', {"form": LoginForm()})
+
 def register_user(request):
     if request.method == "POST":
         form = RegisterUser(request.POST)
