@@ -1,21 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        {% load static %}
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{% url 'static/styles.css' %}">
+        <link id="dynamic-stylesheet" rel="stylesheet" href="{% static 'CRM/styles.css' %}">
 
+        <script src="{% static 'CRM/script.js' %}"></script>
         <title>
             {% block title %}{% endblock %}
         </title>
+        <script>
+            
+            function updateStylesheet() {
+                const stylesheet = document.getElementById('dynamic-stylesheet');
+                const newStylesheetURL = '{% static "CRM/styles.css" %}';
+                stylesheet.href = newStylesheetURL;
+            }
+
+            document.addEventListener('click', updateStylesheet)
+            </script>
+
+{% if message %}
+            <script>
+                
+                setTimeout(() => {
+                let alert = document.querySelector('.alert')
+                alert.style.transition = 'all 0.5s ease-in';
+                alert.style.opacity = '0';
+                setTimeout(() => {
+                    alert.remove()
+                }, 2000)
+                
+            }, 7000)
+            </script>
+{% endif %}
+
+
         
         {% block script %}{% endblock %}
     
     </head>
     <body>
         {% include "CRM/navbar.html" %}
-
-        {% block body%}
-        {% endblock%}
+        <div class="container">
+            {% if message %}
+            <div class="alert">
+                {{message}}
+            </div>
+            {% endif %}
+            {% block body%}
+            {% endblock%}
+        </div>
     </body>
 </html>
