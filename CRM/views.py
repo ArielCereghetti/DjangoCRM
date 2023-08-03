@@ -6,12 +6,9 @@ from .forms import RegisterUser, LoginForm
 from django.contrib.auth.models import User
 
 # Create your views here.
+@login_required(login_url="CRM:login")
 def index(request):
-    try:
-        if request.user:
-            return HttpResponseRedirect('login')
-    except:
-        return render(request, 'CRM/index.html')
+    return render(request, 'CRM/index.html')
 
 def login_user(request):
     if request.method == "POST":
