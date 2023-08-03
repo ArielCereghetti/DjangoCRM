@@ -9,6 +9,13 @@ def index(request):
     except:
         return render(request, 'CRM/index.html')
 
+def login_user(request):
+    if request.method == "POST":
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            user = authenticate(username=request.POST['username'], password=request.POST['password'])
+        else:
+            return render(request, 'CRM/login.html', {"form": form })
 
 def login(request):
     pass
